@@ -1,0 +1,14 @@
+.element {
+  padding: 12px;
+  box-sizing: border-box;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+
+  .elementContent {
+    flex: 1;
+  }
+}

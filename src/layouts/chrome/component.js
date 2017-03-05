@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
 import { routes } from 'config/router'
 import { Home } from 'pages'
+
+import Toggle from './toggle'
 import Main from './main'
-import LinkTo from 'components/link_to'
+import Sidebar from './sidebar'
 
 const findRouteByName = (routeName, routes) => {
   return routes.find(route => route.name === routeName)
@@ -61,24 +63,20 @@ class Application extends React.Component {
       layout: true,
       toggle: this.state.toggle
     })
+
     return(
       <div className={className}>
         <div className="layoutTopbar">
           jamal
         </div>
-        <div className="layoutSidebar">
-          <ul>
-            <li><LinkTo name="application.barchart">Barchart</LinkTo></li>
-            <li><LinkTo name="application.dropdown">Dropdown</LinkTo></li>
-            <li><LinkTo name="application.list">List</LinkTo></li>
-          </ul>
-        </div>
+
+        <Sidebar />
 
         <Main title="Home">
           {this.componentRender}
         </Main>
 
-        <div className="layoutToggle" onClick={this.onToggle.bind(this)}>X</div>
+        <Toggle onClick={this.onToggle.bind(this)}/>
       </div>
     )
   }

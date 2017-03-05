@@ -1,10 +1,10 @@
 import React from 'react'
-
+import { Element } from 'components/element'
 
 const Main = ({title, children}) => (
   <div className="layoutMain">
     <div className="layoutMainTitle">
-      {title}
+      <Element>{title}</Element>
     </div>
     <div className="layoutMainBody">
       {children}

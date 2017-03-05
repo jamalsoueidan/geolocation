@@ -28,15 +28,19 @@ html, body {
 
     .layoutMainTitle {
       height: 48px;
-      margin-left: 48px;
+      padding-left: 48px;
+      background-color: #666;
     }
 
     .layoutMainBody {
-      
+      width: 100%;
+      height: calc(100% - 48px);
+      overflow: auto;
     }
   }
 
   .layoutToggle {
+    cursor: pointer;
     position: fixed;
     left: 0px;
     top: 0px;
@@ -61,6 +65,10 @@ html, body {
   .layoutMain {
     width: 48px;
     height: 100%;
+
+    .layoutMainBody {
+      display: none;
+    }
   }
 
   .layoutToggle {
@@ -115,6 +123,10 @@ html, body {
 
     .layoutMain {
       height: calc(100% - 80px);
+
+      .layoutMainBody {
+        display: block;
+      }
     }
 
     .layoutToggle {
