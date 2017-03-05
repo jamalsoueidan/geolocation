@@ -1,0 +1,56 @@
+{
+  "name": "react-application-library",
+  "version": "1.0.0",
+  "description": "React application library that contains components",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors"
+  },
+  "keywords": [
+    "reactjs",
+    "javascript",
+    "components",
+    "es6"
+  ],
+  "author": "Jamal Soueidan",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-jest": "^18.0.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "jest-cli": "^18.1.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.1.0",
+    "postcss-loader": "^1.3.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-smart-import": "^0.6.7",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "d3": "^4.6.0",
+    "fbemitter": "^2.1.1",
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router5": "^4.0.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.8.2",
+    "redux-router5": "^4.2.3",
+    "reset-css": "^2.2.0",
+    "router5": "^4.5.1",
+    "router5.transition-path": "^4.0.1"
+  }
+}

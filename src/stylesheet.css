@@ -1,0 +1,117 @@
+@import 'reset-css/reset.css';
+
+@custom-media --not-mobil (width >= 500px);
+
+html, body {
+  height: 100%;
+}
+
+.layout {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .layoutTopbar {
+    background-color: #eee;
+    display: none;
+    height: 80px;
+  }
+
+  .layoutSidebar {
+    background-color: #333;
+    display: none;
+  }
+
+  .layoutMain {
+    flex: none;
+    width: 100%;
+  }
+
+  .layoutToggle {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.layout.toggle {
+  .layoutTopbar {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: calc(100% - 48px);
+    box-sizing: border-box;
+  }
+
+  .layoutSidebar {
+    flex: 1;
+    display: block;
+    height: calc(100% - 80px);
+  }
+
+  .layoutMain {
+    width: 48px;
+    height: 100%;
+  }
+
+  .layoutToggle {
+    right: 0px;
+    left: auto;
+    top: 0px;
+  }
+}
+
+@media (--not-mobil) {
+  .layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .layoutTopbar {
+      display: block;
+      flex: 0 1 100%;
+    }
+
+    .layoutSidebar {
+      display: block;
+      flex: 1 0 20%;
+      height: calc(100% - 80px);
+    }
+
+    .layoutMain {
+      flex: 1 0 80%;
+      height: calc(100% - 80px);
+    }
+
+    .layoutToggle {
+      position: fixed;
+      left: 20%;
+      top: 80px;
+    }
+  }
+
+  .layout.toggle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .layoutTopbar {
+      position: static;
+      width: calc(100% - 48px);
+    }
+
+    .layoutSidebar {
+      display: none;
+    }
+
+    .layoutMain {
+      height: calc(100% - 80px);
+    }
+
+    .layoutToggle {
+      left: 0px;
+      right: auto;
+      top: 80px;
+    }
+  }
+}
