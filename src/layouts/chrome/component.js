@@ -1,7 +1,10 @@
 import React from 'react';
+import classNames from 'classnames'
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
 import { routes } from 'config/router'
+import { Home } from 'pages'
+import Main from './main'
 import LinkTo from 'components/link_to'
 
 const findRouteByName = (routeName, routes) => {
@@ -18,7 +21,8 @@ class Application extends React.Component {
     this.routerChange = this.routerChange.bind(this);
 
     this.state = {
-      route: context.router.getState()
+      route: context.router.getState(),
+      toggle: false
     }
   }
 
@@ -36,36 +40,47 @@ class Application extends React.Component {
     this.router.removeListener(this.routerChange)
   }
 
-  render() {
+  get componentRender() {
     const { route } = this.state
     if(route) {
       const selectNode = findRouteByName(route.name, routes)
       if(selectNode && selectNode.component) {
         const ComponentRender = selectNode.component;
         return <ComponentRender />
-      } else {
-        return(
-          <div className="layout">
-            <div className="layoutTopbar">
-              jamal
-            </div>
-            <div className="layoutSidebar">
-              hej med jer
-            </div>
-
-            <div className="layoutMain">
-              <ul>
-                <li><LinkTo name="application.barchart">Barchart</LinkTo></li>
-                <li><LinkTo name="application.dropdown">Dropdown</LinkTo></li>
-                <li><LinkTo name="application.list">List</LinkTo></li>
-              </ul>
-            </div>
-
-            <div className="layoutToggle">X</div>
-          </div>
-        )
       }
     }
+    return <Home />;
+  }
+
+  onToggle() {
+    this.setState({toggle: !this.state.toggle})
+  }
+
+  render() {
+    const className = classNames({
+      layout: true,
+      toggle: this.state.toggle
+    })
+    return(
+      <div className={className}>
+        <div className="layoutTopbar">
+          jamal
+        </div>
+        <div className="layoutSidebar">
+          <ul>
+            <li><LinkTo name="application.barchart">Barchart</LinkTo></li>
+            <li><LinkTo name="application.dropdown">Dropdown</LinkTo></li>
+            <li><LinkTo name="application.list">List</LinkTo></li>
+          </ul>
+        </div>
+
+        <Main title="Home">
+          {this.componentRender}
+        </Main>
+
+        <div className="layoutToggle" onClick={this.onToggle.bind(this)}>X</div>
+      </div>
+    )
   }
 }
 

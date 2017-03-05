@@ -1,4 +1,4 @@
-import Application from './application'
+import { Chrome } from 'layouts'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import router from './config/router'
@@ -13,7 +13,7 @@ const start = () => {
           <AppContainer>
             <Provider store={store}>
               <RouterProvider router={router}>
-                <Application />
+                <Chrome />
               </RouterProvider>
             </Provider>
           </AppContainer>,
@@ -23,7 +23,7 @@ const start = () => {
 }
 
 if (module.hot) {
-  module.hot.accept('./application', () => start());
+  module.hot.accept('./layouts/chrome/component', () => start());
 }
 
 start();

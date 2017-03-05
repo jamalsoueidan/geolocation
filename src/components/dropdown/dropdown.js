@@ -1,6 +1,6 @@
 import React from 'react'
 import ToDropdown from './to_dropdown'
-import cn from 'classNames'
+import cn from 'classnames'
 
 export default ToDropdown(class extends React.Component {
   render() {

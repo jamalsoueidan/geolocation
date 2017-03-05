@@ -1,6 +1,6 @@
 import React from 'react'
 import Position from './position'
-import cn from 'classNames'
+import cn from 'classnames'
 
 const style = {
   visibility: 'hidden',
