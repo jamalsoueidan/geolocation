@@ -9,12 +9,12 @@ import { load } from 'data/cities/actions'
 const routes = [
   { name: 'application', path: '/', onEnter: (store) => ensureDataLoaded(store)('cities', load)},
   { name: 'application.city', path: ':city', component: City },
-  { name: 'application.city.place', path: ':place', component: Place },
+  { name: 'application.city.place', path: '/:place', component: Place },
 ];
 
 const router = createRouter(routes, {
   defaultRoute: 'application',
-  trailingSlash: true
+  trailingSlash: false
 })
 .usePlugin(browserPlugin({useHash: true}))
 .usePlugin(listenersPlugin())

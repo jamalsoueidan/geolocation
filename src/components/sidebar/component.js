@@ -4,6 +4,8 @@ import { routes } from 'config/router'
 import { List, Item } from 'components/list'
 import { Element } from 'components/element'
 
+require('./stylesheet.css')
+
 class Sidebar extends React.Component {
   onClick(city, evt) {
     evt.preventDefault();
