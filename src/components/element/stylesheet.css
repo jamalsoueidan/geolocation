@@ -1,12 +1,16 @@
 .element {
-  padding: 12px;
+  padding: 6px;
   box-sizing: border-box;
   height: 48px;
   min-width: 48px;
   display: flex;
   align-self: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
+  align-content: center;
 
   .elementContent {
     flex: 1;

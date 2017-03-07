@@ -1,18 +1,9 @@
 import transitionPath from 'router5.transition-path';
 
-/*
-const routes = [
-  { name: 'application', path: '/', onEnter: (store) => ensureDataLoaded(store)('user', {type: 'add', text: 'jamal'})},
-  { name: 'application.id', path: '12' }
-];
-
-router.setDependencies({ store });
-router.useMiddleware(onEnterMiddleware(routes));
-*/
-
 const ensureDataLoaded = store => (state, action) => new Promise(resolve => {
   const listener = () => {
-    if(store.getState()[state]) {
+    const data = store.getState()[state]
+    if(data.length > 0) {
       resolve();
       unsubscribe();
       return true;
@@ -21,7 +12,7 @@ const ensureDataLoaded = store => (state, action) => new Promise(resolve => {
   }
   const unsubscribe = store.subscribe(listener)
   if (!listener()) {
-    store.dispatch(action)
+    store.dispatch(action())
   }
 })
 
@@ -34,7 +25,6 @@ const onEnterMiddleware = (routes) => (router, dependencies) => (toState, fromSt
   const onEnterPromises = toActivate.map(routeName => findRouteByName(routes, routeName))
                          .filter(route => typeof route.onEnter === "function")
                          .map(route => route.onEnter(dependencies.store))
-
   return Promise.all(onEnterPromises)
 };
 

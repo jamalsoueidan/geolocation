@@ -5,6 +5,7 @@ class LinkTo extends React.Component {
   onClick(evt) {
     const { router, name, params, options } = this.props;
     evt.preventDefault();
+    console.log(params)
     router.navigate(name, params, options);
   }
 

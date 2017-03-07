@@ -10,8 +10,19 @@ class Element extends React.Component {
       this.props.className
     )
 
+    let attributes = {}
+    const { center, onClick } = this.props
+    if(center) {
+      attributes['style'] = { textAlign: "center" }
+    }
+
+    if(onClick) {
+      attributes['onClick'] = onClick;
+      attributes['style']['cursor'] = "pointer";
+    }
+
     return(
-      <div className={className}>
+      <div className={className} {...attributes}>
         <div className="elementContent">{this.props.children}</div>
       </div>
     )

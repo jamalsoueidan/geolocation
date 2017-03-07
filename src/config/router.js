@@ -3,23 +3,22 @@ import loggerPlugin from 'router5/plugins/logger';
 import listenersPlugin from 'router5/plugins/listeners';
 import browserPlugin from 'router5/plugins/browser';
 import { onEnterMiddleware, ensureDataLoaded } from './routerMiddlewares/on_enter.js'
-
-import BarchartExample from 'components/barchart/example'
-import DropdownExample from 'components/dropdown/example'
-import ListExample from 'components/list/example'
+import { City, Place } from 'pages'
+import { load } from 'data/cities/actions'
 
 const routes = [
-  { name: 'application', path: '/'},
-  { name: 'application.barchart', path: 'barchart', component: BarchartExample },
-  { name: 'application.dropdown', path: 'dropdown', component: DropdownExample },
-  { name: 'application.list', path: 'list', component: ListExample }
+  { name: 'application', path: '/', onEnter: (store) => ensureDataLoaded(store)('cities', load)},
+  { name: 'application.city', path: ':city', component: City },
+  { name: 'application.city.place', path: ':place', component: Place },
 ];
 
 const router = createRouter(routes, {
-  defaultRoute: 'application'
+  defaultRoute: 'application',
+  trailingSlash: true
 })
 .usePlugin(browserPlugin({useHash: true}))
 .usePlugin(listenersPlugin())
+.useMiddleware(onEnterMiddleware(routes));
 
 window.router = router
 
