@@ -1,5 +1,5 @@
 .element {
-  padding: 6px;
+  padding: 8px 12px;
   box-sizing: border-box;
   height: 48px;
   min-width: 48px;
@@ -11,6 +11,18 @@
   justify-content: space-around;
   align-items: center;
   align-content: center;
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff0040;
+    }
+  }
+
+  &.selected {
+    background-color: #ff0040;
+  }
 
   .elementContent {
     flex: 1;

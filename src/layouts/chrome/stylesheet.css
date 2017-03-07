@@ -1,12 +1,4 @@
-@import 'reset-css/reset.css';
-
 @custom-media --not-mobil (width >= 500px);
-
-html, body, #application {
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
-  font-smoothing: antialiased;
-}
 
 .layout {
   height: 100%;

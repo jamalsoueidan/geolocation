@@ -5,21 +5,26 @@ require('./stylesheet.css')
 
 class Element extends React.Component {
   render() {
-    const className = classNames(
-      "element",
-      this.props.className
-    )
-
     let attributes = {}
-    const { center, onClick } = this.props
+    const { center, onClick, selected } = this.props
     if(center) {
       attributes['style'] = { textAlign: "center" }
     }
 
+    let onClickClassName = false;
     if(onClick) {
       attributes['onClick'] = onClick;
-      attributes['style']['cursor'] = "pointer";
+      onClickClassName = true;
     }
+
+    const className = classNames(
+      this.props.className,
+      {
+        "element": true,
+        "clickable": onClickClassName,
+        "selected": selected
+      }
+    )
 
     return(
       <div className={className} {...attributes}>

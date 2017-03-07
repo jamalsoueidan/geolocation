@@ -1,4 +1,4 @@
-import { Chrome } from 'layouts'
+import Application from 'application'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import router from './config/router'
@@ -7,13 +7,19 @@ import { AppContainer } from 'react-hot-loader';
 import { RouterProvider } from 'react-router5';
 import { Provider } from 'react-redux';
 
+require('./stylesheet.css')
+
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 const start = () => {
   router.start(() => {
       ReactDOM.render(
           <AppContainer>
             <Provider store={store}>
               <RouterProvider router={router}>
-                <Chrome />
+                <Application />
               </RouterProvider>
             </Provider>
           </AppContainer>,
@@ -23,7 +29,7 @@ const start = () => {
 }
 
 if (module.hot) {
-  module.hot.accept('./layouts/chrome/component', () => start());
+  module.hot.accept('./application', () => start());
 }
 
 start();
