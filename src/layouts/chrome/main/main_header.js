@@ -1,15 +1,15 @@
 import React from 'react'
 import HeaderLeft from './header_left'
 import HeaderRight from './header_right'
-import ReactSVG from 'react-svg'
 import layout from 'data/layout'
 import { Element } from 'components/element'
+import { Icon } from 'components/icon'
 import { connect } from 'react-redux';
 
 const Toggle = ({onClick}) => (
   <div className="layoutToggle" onClick={onClick}>
     <Element center={true}>
-      <ReactSVG path="dist/toggle.svg" />
+      <Icon name="toggle" />
     </Element>
   </div>
 )

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
 import { Main, MainBody, MainHeader, HeaderCenter, HeaderRight } from 'layouts/chrome'
 import { Element } from 'components/element'
+import { Icon } from 'components/icon'
 import PlaceItem from './place/item'
 import ReactSVG from 'react-svg'
 
@@ -24,8 +25,8 @@ class City extends React.Component {
           <Element center={true}>{city.name.capitalize()}</Element>
         </HeaderCenter>
         <HeaderRight>
-          <Element center={true}><ReactSVG path="dist/list.svg" /></Element>
-          <Element center={true}><ReactSVG path="dist/gps.svg" /></Element>
+          <Element center={true}><Icon name="list" /></Element>
+          <Element center={true}><Icon name="gps" /></Element>
         </HeaderRight>
       </MainHeader>
     )
