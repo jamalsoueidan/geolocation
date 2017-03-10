@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default ({children}) => (
-  <div className="layoutMainHeaderRight">children</div>
+  <div className="layoutMainHeaderRight">{children}</div>
 )

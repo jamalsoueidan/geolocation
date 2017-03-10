@@ -3,13 +3,11 @@
   flex-wrap: wrap;
   align-content: space-around;
   align-items: center;
-  width: 100%;
 
   .placeItem {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    margin: 16px 8px;
+    padding: 6px;
     cursor: pointer;
 
     h2 {

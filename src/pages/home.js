@@ -5,9 +5,9 @@ const Home = () => {
   return(
     <Main>
       <MainHeader>
-        <HeaderCenter>Jamal</HeaderCenter>
+        <HeaderCenter>Hjem</HeaderCenter>
       </MainHeader>
-      <MainBody>Hjem</MainBody>
+      <MainBody>Vælge en by fra listen</MainBody>
     </Main>
   )
 }

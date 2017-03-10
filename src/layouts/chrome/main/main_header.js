@@ -28,7 +28,6 @@ class MainHeader extends React.Component {
       <div className="layoutMainHeader">
         {showToggle && <HeaderLeft><Toggle onClick={this.onToggle.bind(this)} /></HeaderLeft>}
         {children}
-        <HeaderRight>atest</HeaderRight>
       </div>
     )
   }
