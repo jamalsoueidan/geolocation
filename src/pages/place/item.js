@@ -3,17 +3,17 @@ import { withRoute } from 'react-router5';
 
 class PlaceItem extends React.Component {
   onClick() {
-    const { data, router } = this.props;
+    const { place, router } = this.props;
     const route = router.getState();
-    router.navigate("application.city.place", { place: data.name, city: route.params.city });
+    router.navigate("application.city.place", { place: place.name, city: route.params.city });
   }
 
   render() {
-    const { data } = this.props;
+    const { place } = this.props;
     return(
       <div className="placeItem" onClick={this.onClick.bind(this)}>
-        <h2>{data.name}</h2>
-        <img src={data.image} />
+        <h2>{place.name}</h2>
+        <img src={place.image} />
       </div>
     )
   }

@@ -27,8 +27,8 @@ class Element extends React.Component {
     )
 
     return(
-      <div className={className} {...attributes}>
-        <div className="elementContent">{this.props.children}</div>
+      <div className={className}>
+        <div className="elementContent" {...attributes}>{this.props.children}</div>
       </div>
     )
   }

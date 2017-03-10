@@ -1,0 +1,6 @@
+export Main from './component'
+export MainBody from './main_body'
+export MainHeader from './main_header'
+export HeaderLeft from './header_left'
+export HeaderRight from './header_right'
+export HeaderCenter from './header_center'

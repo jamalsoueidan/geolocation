@@ -54,7 +54,7 @@ class Application extends React.Component {
 
   render() {
     return(
-      <Chrome topbar={<Topbar />} sidebar={<Sidebar data={this.props.cities} />} main={this.componentRender} title="home"/>
+      <Chrome topbar={<Topbar />} sidebar={<Sidebar data={this.props.cities} />} main={this.componentRender} />
     )
   }
 }

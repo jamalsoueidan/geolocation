@@ -21,11 +21,14 @@ class Sidebar extends React.Component {
 
     return(
       <List>
+        <Item>
+          <Element className="clickable">Søg nærmest</Element>
+        </Item>
         <Item className="header">
           <Element>Vælge by:</Element>
         </Item>
         <List className="items" data={data} itemRenderer={(city) => (
-          <Element onClick={this.onClick.bind(this, city)} selected={(selectedCity === city.name)}>{city.name.capitalizeFirstLetter()}</Element>
+          <Element onClick={this.onClick.bind(this, city)} selected={(selectedCity === city.name)}>{city.name.capitalize()}</Element>
         )}/>
       </List>
     )

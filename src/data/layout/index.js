@@ -1,6 +1,6 @@
 import * as actions from './actions'
 import reducer from './reducer'
 
-const key = "cities"
+const key = "layout"
 
-export default { key, actions, reducer }
+export default { actions, reducer, key }

@@ -1,29 +1,17 @@
 import React from 'react';
 import classNames from 'classnames'
-import Main from './main'
-import Toggle from './toggle'
+import { Main } from './main'
+import { connect } from 'react-redux';
 
 require('./stylesheet.css')
 
 class Application extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      toggle: false
-    }
-  }
-
-  onToggle() {
-    this.setState({toggle: !this.state.toggle})
-  }
-
   render() {
-    const { topbar, sidebar, title, main } = this.props;
+    const { topbar, sidebar, title, main, layout } = this.props;
 
     const className = classNames({
       layout: true,
-      toggle: this.state.toggle
+      toggle: layout.toggle
     })
 
     return(
@@ -36,11 +24,7 @@ class Application extends React.Component {
           {sidebar}
         </div>
 
-        <Main title={title}>
-          {main}
-        </Main>
-
-        <Toggle onClick={this.onToggle.bind(this)}/>
+        {main}
       </div>
     )
   }
@@ -49,8 +33,9 @@ class Application extends React.Component {
 Application.propTypes = {
   topbar: React.PropTypes.element.isRequired,
   sidebar: React.PropTypes.element.isRequired,
-  main: React.PropTypes.element.isRequired,
-  title: React.PropTypes.string.isRequired
+  main: React.PropTypes.element.isRequired
 };
 
-export default Application;
+const mapStateProps = state => ({ layout: state.layout })
+
+export default connect(mapStateProps)(Application);

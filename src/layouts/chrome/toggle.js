@@ -5,7 +5,7 @@ import ReactSVG from 'react-svg'
 const Toggle = ({onClick}) => (
   <div className="layoutToggle" onClick={onClick}>
     <Element center={true}>
-      <ReactSVG path="dist/toggle.svg" style={{ width: 24 }} />
+      <ReactSVG path="dist/toggle.svg" />
     </Element>
   </div>
 )

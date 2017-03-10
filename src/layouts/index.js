@@ -1,1 +1,1 @@
-export Chrome from './chrome'
+export Chrome, { Main } from './chrome'
