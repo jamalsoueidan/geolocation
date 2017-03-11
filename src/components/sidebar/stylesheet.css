@@ -12,9 +12,10 @@
 
   .element.selected {
     background-color: #2D2D2D;
+    border-left: 6px solid #00AFE3;
+
     .elementContent:first-child {
-      border-left: 6px solid #00AFE3;
-      padding-left: 6px;
+      padding-left: 0px;
     }
   }
 
