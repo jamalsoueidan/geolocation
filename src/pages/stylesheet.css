@@ -1,10 +1,12 @@
 .cityPlaces {
+  display: flex;
+  flex-direction: column;
+
   .placeItem {
     position: relative;
     cursor: pointer;
-    width: 100%;
-    padding: 6px;
-    box-sizing: border-box;
+    flex: 1;
+    margin: 6px;
 
     .placeTitle {
       position: absolute;
