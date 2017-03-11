@@ -23,7 +23,7 @@ class Sidebar extends React.Component {
     return(
       <List>
         <Item>
-          <Element className="clickable">Søg nærmest</Element>
+          <Element onClick={() => console.log("ok")}>Søg nærmest</Element>
         </Item>
         <Item className="header">
           <Element>Vælge by:</Element>

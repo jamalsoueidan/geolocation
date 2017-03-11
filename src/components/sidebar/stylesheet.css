@@ -13,4 +13,13 @@
   .element.selected {
     background-color: #2D2D2D;
   }
+
+  .element.header {
+    color: #fff;
+    background-color: #00AFE3;
+  }
+
+  .badge {
+    color: #fff;
+  }
 }

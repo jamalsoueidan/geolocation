@@ -43,12 +43,13 @@ class Element extends React.Component {
       {
         "element": true,
         "clickable": this.hasOnClick,
-        "selected": selected
+        "selected": selected,
+        "header": !this.hasOnClick
       }
     )
 
     return(
-      <div className={className}>
+      <div className={className} {...attributes}>
         {this.renderChildren}
       </div>
     )

@@ -65,12 +65,12 @@
 
     .layoutSidebar {
       display: block;
-      flex: 1 0 20%;
+      flex: .4;
       height: calc(100% - 80px);
     }
 
     .layoutMain {
-      flex: 1 0 80%;
+      flex: 1;
       height: calc(100% - 80px);
     }
 
