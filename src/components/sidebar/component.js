@@ -2,7 +2,8 @@ import React from 'react'
 import { withRoute } from 'react-router5';
 import { routes } from 'config/router'
 import { List, Item } from 'components/list'
-import { Element } from 'components/element'
+import { Element, ElementContent } from 'components/element'
+import Badge from 'components/badge'
 
 require('./stylesheet.css')
 
@@ -27,9 +28,10 @@ class Sidebar extends React.Component {
         <Item className="header">
           <Element>Vælge by:</Element>
         </Item>
-        <List className="items" data={data} itemRenderer={(city) => (
+        <List className="items" data={data} itemRenderer={(city, index) => (
           <Element onClick={this.onClick.bind(this, city)} selected={(selectedCity === city.name)}>
-            {city.name.capitalize()} {city.children.length}
+            <ElementContent>{city.name.capitalize()}</ElementContent>
+            <ElementContent><Badge>{city.children.length}</Badge></ElementContent>
           </Element>
         )}/>
       </List>

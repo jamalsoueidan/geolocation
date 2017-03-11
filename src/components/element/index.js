@@ -1,1 +1,1 @@
-export Element from './component'
+export Element, { ElementContent } from './component'

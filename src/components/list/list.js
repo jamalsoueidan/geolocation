@@ -1,6 +1,8 @@
 import React from 'react'
 import Item from './item'
 
+require('./stylesheet.css')
+
 class List extends React.Component {
   get children() {
     let _children = this.props.children
@@ -8,7 +10,7 @@ class List extends React.Component {
 
     let { data, itemRenderer } = this.props;
     if(data) {
-      return data.map((item, index) => <Item key={index}>{itemRenderer(item)}</Item>)
+      return data.map( (item, index) => <Item key={index}>{itemRenderer(item)}</Item>)
     }
   }
 

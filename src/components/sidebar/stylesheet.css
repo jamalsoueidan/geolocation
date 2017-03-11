@@ -1,13 +1,16 @@
 .layoutSidebar {
+  background-color: #232323;
+  color: #808080;
+
   .element.clickable {
     cursor: pointer;
 
     &:hover {
-      background-color: #ff0040;
+      background-color: #2D2D2D;
     }
   }
 
   .element.selected {
-    background-color: #ff0040;
+    background-color: #2D2D2D;
   }
 }

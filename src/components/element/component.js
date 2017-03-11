@@ -3,35 +3,56 @@ import classNames from 'classnames'
 
 require('./stylesheet.css')
 
+const ElementContent = ({center, children}) => {
+  const className = classNames("elementContent", { "center": center })
+  return <div className={className}>{children}</div>
+}
+
 class Element extends React.Component {
+  get renderChildren() {
+    const { children, center } = this.props;
+    const countChildren = React.Children.count(children)
+    if (countChildren === 1) {
+      return <ElementContent center={center}>{children}</ElementContent>
+    } else {
+      return children;
+    }
+  }
+
+  get hasOnClick() {
+    const { onClick }  = this.props;
+    return (onClick ? true : false)
+  }
+
+  get shouldCenterText() {
+    const { center } = this.props;
+    return ( center ? true: false )
+  }
+
   render() {
     let attributes = {}
-    const { center, onClick, selected } = this.props
-    if(center) {
-      attributes['style'] = { textAlign: "center" }
-    }
+    const { onClick, selected, children } = this.props
 
-    let onClickClassName = false;
-    if(onClick) {
+    if(this.hasOnClick) {
       attributes['onClick'] = onClick;
-      onClickClassName = true;
     }
 
+    const childrenClassName = "children" + React.Children.count(children);
     const className = classNames(
-      this.props.className,
+      this.props.className, childrenClassName,
       {
         "element": true,
-        "clickable": onClickClassName,
+        "clickable": this.hasOnClick,
         "selected": selected
       }
     )
 
     return(
       <div className={className}>
-        <div className="elementContent" {...attributes}>{this.props.children}</div>
+        {this.renderChildren}
       </div>
     )
   }
 }
 
-export default Element
+export { Element as default, ElementContent }
