@@ -22,11 +22,11 @@ class City extends React.Component {
     return(
       <MainHeader>
         <HeaderCenter>
-          <Element center={true}>{city.name.capitalize()}</Element>
+          <Element center>{city.name.capitalize()}</Element>
         </HeaderCenter>
         <HeaderRight>
-          <Element center={true}><Icon name="list" fill="#00556C" /></Element>
-          <Element center={true}><Icon name="gps" fill="#00556C"/></Element>
+          <Element icon><Icon name="list" fill="#00556C" /></Element>
+          <Element icon><Icon name="gps" fill="#00556C"/></Element>
         </HeaderRight>
       </MainHeader>
     )

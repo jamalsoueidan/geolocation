@@ -12,11 +12,22 @@
 
   .element.selected {
     background-color: #2D2D2D;
+    .elementContent:first-child {
+      border-left: 6px solid #00AFE3;
+      padding-left: 6px;
+    }
   }
 
   .element.header {
-    color: #fff;
-    background-color: #00AFE3;
+    background-color: #1D1D1D;
+    color: #fff;;
+    box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .5), inset 0px 0px 1px rgba(255, 255, 255, .8);
+
+    .elementContent {
+      min-height: 32px;
+      font-size: 12px;
+      font-weight: bold;
+    }
   }
 
   .badge {

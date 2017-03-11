@@ -65,7 +65,7 @@
 
     .layoutSidebar {
       display: block;
-      flex: .4;
+      flex: .3;
       height: calc(100% - 80px);
     }
 

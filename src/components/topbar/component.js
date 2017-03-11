@@ -1,8 +1,10 @@
 import React from 'react'
 
+require('./stylesheet.css')
+
 class Topbar extends React.Component {
   render() {
-    return(<div>topbar</div>)
+    return(<div className="topbar"><h1>Vandpibe Cafe</h1></div>)
   }
 }
 

@@ -3,17 +3,23 @@ import classNames from 'classnames'
 
 require('./stylesheet.css')
 
-const ElementContent = ({center, children}) => {
-  const className = classNames("elementContent", { "center": center })
+const ElementContent = (props) => {
+  const { icon, text, center, children } = props;
+
+  const className = classNames("elementContent", {
+    "icon": icon || center,
+    "text": text
+  })
+
   return <div className={className}>{children}</div>
 }
 
 class Element extends React.Component {
   get renderChildren() {
-    const { children, center } = this.props;
+    const { children, center, icon, text } = this.props;
     const countChildren = React.Children.count(children)
     if (countChildren === 1) {
-      return <ElementContent center={center}>{children}</ElementContent>
+      return <ElementContent center={center} icon={icon} text={text}>{children}</ElementContent>
     } else {
       return children;
     }
