@@ -46,6 +46,12 @@
     width: 48px;
     height: 100%;
 
+    .layoutMainHeader {
+      .layoutMainHeaderRight, .layoutMainHeaderCenter {
+        display: none;
+      }
+    }
+
     .layoutMainBody {
       display: none;
     }
@@ -92,6 +98,12 @@
 
     .layoutMain {
       height: calc(100% - 80px);
+
+      .layoutMainHeader {
+        .layoutMainHeaderRight, .layoutMainHeaderCenter {
+          display: flex;
+        }
+      }
 
       .layoutMainBody {
         display: block;

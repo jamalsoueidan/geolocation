@@ -12,7 +12,8 @@ class PlaceItem extends React.Component {
     const { place } = this.props;
     return(
       <div className="placeItem" onClick={this.onClick.bind(this)}>
-        <h2>{place.name}</h2>
+        <div className="placeTitle"><div className="hide">{place.name.toUpperCase()}</div></div>
+        <h2>{place.name.toUpperCase()}</h2>
         <img src={place.image} />
       </div>
     )

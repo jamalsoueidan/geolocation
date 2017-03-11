@@ -1,20 +1,36 @@
 .cityPlaces {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-around;
-  align-items: center;
-
   .placeItem {
-    display: flex;
-    flex-direction: column;
-    margin: 6px;
-    border-bottom: 1px solid #EBEBEB;
+    position: relative;
     cursor: pointer;
-    background-color: #fff;
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+
+    .placeTitle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background-color: #90908D;
+      opacity: 0.5;
+
+      .hide {
+        border: 1px solid #fff;
+        margin: 6px;
+        padding: 6px;
+        visibility: hidden;
+      }
+    }
 
     h2 {
-      order: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      border: 1px solid #fff;
       padding: 6px;
+      color: #fff;
+      opacity: .8;
     }
 
     img {
