@@ -1,17 +1,14 @@
 import React from 'react'
 import { withRoute } from 'react-router5';
 import { routes } from 'config/router'
-import { List, Item } from 'components/list'
-import { Element, ElementContent } from 'components/element'
-import Badge from 'components/badge'
-import { Icon } from 'components/icon'
+import { Badge, Icon, Element, ElementContent, List, ListItem } from 'components'
 
 require('./stylesheet.css')
 
 class Sidebar extends React.Component {
   onClick(city, evt) {
     evt.preventDefault();
-    router.navigate("application.city", {city: city.name});
+    router.navigate("application.city", {city: city.name, mode: 'list'});
   }
 
   render() {
@@ -23,15 +20,15 @@ class Sidebar extends React.Component {
 
     return(
       <List>
-        <Item>
+        <ListItem>
           <Element onClick={() => console.log("ok")}>
             <ElementContent icon><Icon name="search" fill="white" /></ElementContent>
             <ElementContent text>Søg nærmest</ElementContent>
           </Element>
-        </Item>
-        <Item className="header">
+        </ListItem>
+        <ListItem className="header">
           <Element>Vælge by:</Element>
-        </Item>
+        </ListItem>
         <List className="items" data={data} itemRenderer={(city, index) => (
           <Element onClick={this.onClick.bind(this, city)} selected={(selectedCity === city.name)}>
             <ElementContent text>{city.name.capitalize()}</ElementContent>

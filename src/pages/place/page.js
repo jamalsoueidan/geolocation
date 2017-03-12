@@ -6,7 +6,7 @@ import { Main } from 'layouts/chrome'
 import { Element } from 'components/element'
 import { actions } from 'redux-router5';
 
-class Place extends React.Component {
+class PlacePage extends React.Component {
   get title() {
     const { place } = this.props;
     return(
@@ -46,4 +46,4 @@ const mapStateProps = (state) => ({
   ...routeNodeSelector('application.city.place')(state)
 })
 
-export default connect(mapStateProps, { navigateTo: actions.navigateTo })(Place);
+export default connect(mapStateProps, { navigateTo: actions.navigateTo })(PlacePage);

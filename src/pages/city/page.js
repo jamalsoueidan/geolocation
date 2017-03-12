@@ -2,19 +2,31 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
 import { Main, MainBody, MainHeader, HeaderCenter, HeaderRight } from 'layouts/chrome'
-import { Element } from 'components/element'
-import { Icon } from 'components/icon'
-import PlaceItem from './place/item'
-import ReactSVG from 'react-svg'
+import { Element, Icon } from 'components'
+import { CityMap, CityList } from './mode'
 
 require('./stylesheet.css')
 
-class City extends React.Component {
+const LIST = 'list'
+const MAP = 'map'
+
+class CityPage extends React.Component {
   get renderPlaces() {
-    const {city} = this.props
-    return city.children.map(place =>
-      <PlaceItem key={place.id} place={place} />
-    )
+    const { city, route } = this.props
+    const mode = route.params.mode;
+
+    let Component;
+    if (mode === MAP) {
+      Component = CityMap;
+    } else {
+      Component = CityList;
+    }
+
+    return <Component places={city.children} />
+  }
+
+  onChangeMode(mode) {
+    
   }
 
   get header() {
@@ -25,8 +37,8 @@ class City extends React.Component {
           <Element center>{city.name.capitalize()}</Element>
         </HeaderCenter>
         <HeaderRight>
-          <Element icon><Icon name="list" fill="#00556C" /></Element>
-          <Element icon><Icon name="gps" fill="#00556C"/></Element>
+          <Element onClick={this.onChangeMode.bind(this, 'list')} icon><Icon name="list" fill="#00556C" /></Element>
+          <Element onClick={this.onChangeMode.bind(this, 'list')} icon><Icon name="gps" fill="#00556C"/></Element>
         </HeaderRight>
       </MainHeader>
     )
@@ -36,9 +48,7 @@ class City extends React.Component {
     const { city } = this.props
     return(
       <MainBody>
-        <div className="cityPlaces">
-          {this.renderPlaces}
-        </div>
+        {this.renderPlaces}
       </MainBody>
     )
   }
@@ -67,4 +77,4 @@ const mapStateProps = (state) => ({
   ...routeNodeSelector('application.city')(state)
 })
 
-export default connect(mapStateProps)(City);
+export default connect(mapStateProps)(CityPage);

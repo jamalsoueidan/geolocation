@@ -1,3 +1,3 @@
-export Home from './home.js'
-export City from './city.js'
-export Place from './place.js'
+export HomePage from './home'
+export CityPage from './city'
+export PlacePage from './place'

@@ -1,18 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
+import ElementContent from './element_content'
 
 require('./stylesheet.css')
-
-const ElementContent = (props) => {
-  const { icon, text, center, children } = props;
-
-  const className = classNames("elementContent", {
-    "icon": icon || center,
-    "text": text
-  })
-
-  return <div className={className}>{children}</div>
-}
 
 class Element extends React.Component {
   get renderChildren() {

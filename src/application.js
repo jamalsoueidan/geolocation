@@ -1,12 +1,11 @@
 import React from 'react';
 import classNames from 'classnames'
+import { Sidebar, Topbar } from 'components'
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
 import { routes } from 'config/router'
-import { Home } from 'pages'
+import { HomePage } from 'pages'
 import { Chrome } from 'layouts'
-import Sidebar from 'components/sidebar'
-import Topbar from 'components/topbar'
 
 const findRouteByName = (routeName, routes) => {
   return routes.find(route => route.name === routeName)
@@ -49,7 +48,7 @@ class Application extends React.Component {
         return <ComponentRender />
       }
     }
-    return <Home />;
+    return <HomePage />;
   }
 
   render() {

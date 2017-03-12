@@ -1,2 +1,3 @@
 export List from './list'
-export Item from './item'
+export ListItem from './item'
+export default from './list'

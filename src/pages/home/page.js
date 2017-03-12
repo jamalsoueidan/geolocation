@@ -2,7 +2,7 @@ import React from 'react'
 import { Main, MainBody, MainHeader, HeaderCenter, HeaderRight} from 'layouts/chrome'
 import Icon from 'components/icon'
 
-const Home = () => {
+const HomePage = () => {
   return(
     <Main>
       <MainHeader>
@@ -16,4 +16,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage
