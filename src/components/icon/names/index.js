@@ -1,3 +1,5 @@
 export List from './list'
 export Toggle from './toggle'
 export Gps from './gps'
+export Search from './search'
+export Add from './add'

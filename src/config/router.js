@@ -3,13 +3,15 @@ import loggerPlugin from 'router5/plugins/logger';
 import listenersPlugin from 'router5/plugins/listeners';
 import browserPlugin from 'router5/plugins/browser';
 import { onEnterMiddleware, ensureDataLoaded } from './routerMiddlewares/on_enter.js'
-import { CityPage, PlacePage } from 'pages'
+import { CityPage, PlacePage, ClosestPage, AddPage } from 'pages'
 import { load } from 'data/cities/actions'
 
 const routes = [
   { name: 'application', path: '/', onEnter: (store) => ensureDataLoaded(store)('cities', load)},
-  { name: 'application.city', path: ':city', component: CityPage },
-  { name: 'application.city.place', path: '/:place', component: PlacePage },
+  { name: 'application.closest', path: 'closest', component: ClosestPage },
+  { name: 'application.add', path: 'add', component: AddPage },
+  { name: 'application.city', path: 'by/:city', component: CityPage },
+  { name: 'application.city.place', path: '/sted/:place', component: PlacePage },
 ];
 
 const router = createRouter(routes, {
