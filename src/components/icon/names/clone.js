@@ -2,7 +2,7 @@ import React from 'react'
 import SVG from '../svg'
 
 export default (props) => (
-  <SVG {...props}>
+  <SVG size="512" {...props}>
 
   </SVG>
 )

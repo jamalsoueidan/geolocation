@@ -45,6 +45,12 @@ class Sidebar extends React.Component {
             <ElementContent text>Tilføj Vandpibe Cafe</ElementContent>
           </Element>
         </ListItem>
+        <ListItem>
+          <Element onClick={this.onClickAdd.bind(this)}>
+            <ElementContent icon><Icon name="cart" fill="white" /></ElementContent>
+            <ElementContent text>Køb Vandpibe</ElementContent>
+          </Element>
+        </ListItem>
         <ListItem className="header">
           <Element>Vælge by:</Element>
         </ListItem>

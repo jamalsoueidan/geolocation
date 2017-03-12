@@ -1,5 +1,5 @@
 import React from 'react'
-import { Gps, List, Toggle, Search, Add } from './names'
+import { Gps, List, Toggle, Search, Add, Cart } from './names'
 
 const findIcon = (attributes) => {
   let Component = null;
@@ -18,6 +18,9 @@ const findIcon = (attributes) => {
       break;
     case "add":
       Component = Add
+      break;
+    case "cart":
+      Component = Cart
       break;
   }
   if(!Component) return  null;
