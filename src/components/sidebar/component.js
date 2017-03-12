@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
         <ListItem>
           <Element onClick={this.onClickClosest.bind(this)}>
             <ElementContent icon><Icon name="search" fill="white" /></ElementContent>
-            <ElementContent text>Søg nærmest</ElementContent>
+            <ElementContent text>Find nærmest</ElementContent>
           </Element>
         </ListItem>
         <ListItem>

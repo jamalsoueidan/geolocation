@@ -4,6 +4,7 @@ import { actions } from 'redux-router5';
 import { Main, MainBody, MainHeader, HeaderCenter, HeaderRight} from 'layouts/chrome'
 import Icon from 'components/icon'
 import sphere from 'sphere-knn'
+import ResultPage from './result'
 
 const options = {
   enableHighAccuracy: true,
@@ -12,10 +13,24 @@ const options = {
 }
 
 class ClosestPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      places: null,
+      coordinates: null,
+      error: null
+    }
+  }
+
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(this.findClosestPlace.bind(this), () => {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }, options);
+    if (typeof navigator.geolocation == "undefined") {
+      this.setState({error: {
+        code: "1234",
+        message: "Din browser understøtter ikke geolocation, derfor kan du ikke bruge den funktion."
+      }})
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(this.findClosestPlace.bind(this), this.notAccepting.bind(this), options);
   }
 
   get concatPlaces() {
@@ -23,18 +38,43 @@ class ClosestPage extends React.Component {
                             .filter(p => p.coordinates)
                             .map(p => Object.assign({}, p.coordinates, p));
   }
+
   get places() {
     if(this._places) return this._places;
     this._places = this.concatPlaces;
     return this._places;
   }
 
+  notAccepting(err) {
+    this.setState({error: {
+      code: 1,
+      message: "Du har ikke givet os tilladelse til at få din position, derfor kan vi desværre ikke lokalisere vandpibe cafeer i nærheden af dig!"
+    }});
+  }
+
   findClosestPlace(pos) {
     const { latitude, longitude } = pos.coords;
-    const points = sphere(this.places)(latitude, longitude, 2)
+    const places = sphere(this.places)(latitude, longitude, 2)
+    this.setState({places, coordinates: pos.coords})
   }
 
   render() {
+    const { places, error } = this.state;
+    if(places!== null) {
+      return <ResultPage {...this.state}/>
+    }
+    if(error !== null) {
+      return(
+        <Main>
+          <MainHeader>
+            <HeaderCenter>Fejl: {error.code}</HeaderCenter>
+          </MainHeader>
+          <MainBody>
+            {error.message}
+          </MainBody>
+        </Main>
+      )
+    }
     return(
       <Main>
         <MainHeader>
