@@ -8,7 +8,7 @@ require('./stylesheet.css')
 class Sidebar extends React.Component {
   onClick(city, evt) {
     evt.preventDefault();
-    router.navigate("application.city", {city: city.name, mode: 'list'});
+    router.navigate("application.city", {city: city.name, mode: 'map'});
   }
 
   render() {

@@ -21,7 +21,7 @@
 
   .element.header {
     background-color: #1D1D1D;
-    color: #fff;;
+    color: #D3D3D3;
     box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .5), inset 0px 0px 1px rgba(255, 255, 255, .8);
 
     .elementContent {

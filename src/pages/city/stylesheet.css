@@ -1,5 +1,10 @@
 @custom-media --not-mobil (width >= 500px);
 
+.map {
+  height: 100%;
+  width: 100%;
+}
+
 .cityPlaces {
   display: flex;
   flex-direction: column;

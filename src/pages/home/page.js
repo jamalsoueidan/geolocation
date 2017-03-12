@@ -7,9 +7,6 @@ const HomePage = () => {
     <Main>
       <MainHeader>
         <HeaderCenter>Hjem</HeaderCenter>
-        <HeaderRight>
-          <Icon name="toggle" />
-        </HeaderRight>
       </MainHeader>
       <MainBody>Vælge en by fra listen</MainBody>
     </Main>

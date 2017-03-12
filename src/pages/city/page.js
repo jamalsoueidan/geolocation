@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { routeNodeSelector } from 'redux-router5';
+import { routeNodeSelector, actions } from 'redux-router5';
 import { Main, MainBody, MainHeader, HeaderCenter, HeaderRight } from 'layouts/chrome'
 import { Element, Icon } from 'components'
 import { CityMap, CityList } from './mode'
@@ -22,11 +22,12 @@ class CityPage extends React.Component {
       Component = CityList;
     }
 
-    return <Component places={city.children} />
+    return <Component city={city} />
   }
 
   onChangeMode(mode) {
-    
+    const { navigateTo, route } = this.props;
+    navigateTo("application.city", { city: route.params.city, mode}, { reload: true })
   }
 
   get header() {
@@ -38,7 +39,7 @@ class CityPage extends React.Component {
         </HeaderCenter>
         <HeaderRight>
           <Element onClick={this.onChangeMode.bind(this, 'list')} icon><Icon name="list" fill="#00556C" /></Element>
-          <Element onClick={this.onChangeMode.bind(this, 'list')} icon><Icon name="gps" fill="#00556C"/></Element>
+          <Element onClick={this.onChangeMode.bind(this, 'map')} icon><Icon name="gps" fill="#00556C"/></Element>
         </HeaderRight>
       </MainHeader>
     )
@@ -77,4 +78,4 @@ const mapStateProps = (state) => ({
   ...routeNodeSelector('application.city')(state)
 })
 
-export default connect(mapStateProps)(CityPage);
+export default connect(mapStateProps, { navigateTo: actions.navigateTo})(CityPage);
