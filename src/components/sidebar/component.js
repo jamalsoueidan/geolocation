@@ -8,7 +8,12 @@ require('./stylesheet.css')
 class Sidebar extends React.Component {
   onClickCity(city, evt) {
     evt.preventDefault();
-    router.navigate("application.city", {city: city.name, mode: 'map'});
+    const route = router.getState();
+    let mode = "map";
+    if(route.name === "application.city") {
+      mode = route.params.mode;
+    }
+    router.navigate("application.city", {city: city.name, mode});
   }
 
   onClickClosest() {

@@ -40,7 +40,10 @@ class ClosestPage extends React.Component {
         <MainHeader>
           <HeaderCenter>Søg nærmest</HeaderCenter>
         </MainHeader>
-        <MainBody>Om 10 sekunder spørger dig om tilladelse til at få din position for at finde den nærmest vandpibe cafe i nærheden af dig!</MainBody>
+        <MainBody>
+          Om 10 sekunder spørger dig om tilladelse til at få din position for at finde den nærmest vandpibe cafe i nærheden af dig!<br />
+          Hvis du ved en fejl har nægtet tilladelsen, så skal du reloade siden.
+        </MainBody>
       </Main>
     )
   }
