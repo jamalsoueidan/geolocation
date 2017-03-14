@@ -16,12 +16,14 @@ class Application extends React.Component {
 
     return(
       <div className={className}>
-        <div className="layoutTopbar">
-          {topbar}
-        </div>
-
         <div className="layoutSidebar">
-          {sidebar}
+          <div className="layoutSidebarHeader">
+            {topbar}
+          </div>
+
+          <div className="layoutSidebarBody">
+            {sidebar}
+          </div>
         </div>
 
         {main}

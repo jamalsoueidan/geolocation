@@ -38,8 +38,8 @@ class CityPage extends React.Component {
           <Element center>{city.name.capitalize()}</Element>
         </HeaderCenter>
         <HeaderRight>
-          <Element onClick={this.onChangeMode.bind(this, 'list')} icon><Icon name="list" fill="#00556C" /></Element>
-          <Element onClick={this.onChangeMode.bind(this, 'map')} icon><Icon name="gps" fill="#00556C"/></Element>
+          <Element onClick={this.onChangeMode.bind(this, 'list')} icon><Icon name="list" /></Element>
+          <Element onClick={this.onChangeMode.bind(this, 'map')} icon><Icon name="gps" /></Element>
         </HeaderRight>
       </MainHeader>
     )

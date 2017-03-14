@@ -1,9 +1,18 @@
 import React from 'react'
 import PlaceItem from './place/item'
 import L from 'leaflet'
-import sphere from 'sphere-knn'
+import { withRoute } from 'react-router5';
 
 class CityMap extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  onClick(place) {
+    const route = this.props.router.getState();
+    router.navigate("application.city.place", { place: place.name, city: route.params.city });
+  }
+
   componentDidMount() {
     const { city } = this.props;
     this.map = L.map('map').setView(city.coordinates, 15);
@@ -13,20 +22,29 @@ class CityMap extends React.Component {
     }).addTo(this.map);
 
     this.createMarkers(city.children)
-
-    /*const coordinates = city.children.filter(p => p.coordinates).map(p => Object.assign({}, p.coordinates, { id: p.name }))
-    const points = sphere(coordinates)(55.676268, 12.567630, 1)*/
   }
 
   createMarkers(newPlacers) {
-    newPlacers.filter(p => p.coordinates).forEach(p => {
-      L.marker(p.coordinates).addTo(this.map).bindPopup("<b>Hello world!</b><br />I am a popup.")
-    })
+    if(this.groupMarkers) this.map.removeLayer(this.groupMarkers)
+    let icon;
+    const markers = newPlacers.filter(p => p.coordinates).map(p => {
+      icon = L.divIcon({
+          className: '',
+          html: '<div style="background-color: #fff; padding: 6px 6px 2px 6px; border:1px solid #000;"><img src="' + p.image + '" style="width:100%;height:100%;"/></div>',
+          iconSize: [100, 50],
+          iconAnchor: null
+      });
+      return L.marker(p.coordinates, { icon }).on('click', this.onClick.bind(this, p))
+    });
+    this.groupMarkers = new L.FeatureGroup(markers)
+    this.map.addLayer(this.groupMarkers)
+    this.map.fitBounds(this.groupMarkers.getBounds().pad(0.5));
   }
 
   componentDidUpdate() {
     const { city } = this.props;
     this.map.setView(city.coordinates, 13)
+    this.createMarkers(city.children)
   }
 
   render() {
@@ -34,4 +52,4 @@ class CityMap extends React.Component {
   }
 }
 
-export default CityMap
+export default withRoute(CityMap)

@@ -1,27 +1,23 @@
 .layoutSidebar {
-  background-color: #232323;
-  color: #808080;
+  background-color: #3CA2E0;
 
   .element.clickable {
     cursor: pointer;
 
     &:hover {
-      background-color: #2D2D2D;
+      background-color: #fff;
+      color: #3CA2E0;
     }
   }
 
   .element.selected {
-    background-color: #2D2D2D;
-    border-left: 6px solid #00AFE3;
-
-    .elementContent:first-child {
-      padding-left: 0px;
-    }
+    background-color: #fff;
+    color: #3CA2E0;
   }
 
   .element.header {
-    background-color: #1D1D1D;
-    color: #D3D3D3;
+    background-color: #2089C9;
+    color: #ecf6fc;
     box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .5), inset 0px 0px 1px rgba(255, 255, 255, .8);
 
     .elementContent {

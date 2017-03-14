@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const Toggle = ({onClick}) => (
   <div className="layoutToggle" onClick={onClick}>
     <Element center={true}>
-      <Icon name="toggle" fill="#00556C" />
+      <Icon name="toggle" />
     </Element>
   </div>
 )

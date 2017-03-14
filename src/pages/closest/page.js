@@ -70,7 +70,7 @@ class ClosestPage extends React.Component {
             <HeaderCenter>Fejl: {error.code}</HeaderCenter>
           </MainHeader>
           <MainBody>
-            {error.message}
+            <div className="page">{error.message}</div>
           </MainBody>
         </Main>
       )
@@ -81,8 +81,8 @@ class ClosestPage extends React.Component {
           <HeaderCenter>Søg nærmest</HeaderCenter>
         </MainHeader>
         <MainBody>
-          Om 10 sekunder spørger dig om tilladelse til at få din position for at finde den nærmest vandpibe cafe i nærheden af dig!<br />
-          Hvis du ved en fejl har nægtet tilladelsen, så skal du reloade siden.
+          <div className="page">Om 10 sekunder spørger dig om tilladelse til at få din position for at finde den nærmest vandpibe cafe i nærheden af dig!<br />
+          Hvis du ved en fejl har nægtet tilladelsen, så skal du reloade siden.</div>
         </MainBody>
       </Main>
     )

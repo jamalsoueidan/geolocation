@@ -1,4 +1,7 @@
 .topbar {
   padding: 12px;
-  font-size: 200%;
+  font-size: 1.2em;
+  background-color: #2089C9;
+  border-bottom: 1px solid #2089C9;
+  text-align: center;
 }

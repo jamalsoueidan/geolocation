@@ -24,6 +24,7 @@ const findIcon = (attributes) => {
       break;
   }
   if(!Component) return  null;
+  if(!attributes.fill) attributes.fill = "currentColor";
   return <Component {...attributes} />
 }
 

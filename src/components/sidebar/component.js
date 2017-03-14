@@ -35,19 +35,19 @@ class Sidebar extends React.Component {
       <List>
         <ListItem>
           <Element onClick={this.onClickClosest.bind(this)}>
-            <ElementContent icon><Icon name="search" fill="white" /></ElementContent>
+            <ElementContent icon><Icon name="search" /></ElementContent>
             <ElementContent text>Find nærmest</ElementContent>
           </Element>
         </ListItem>
         <ListItem>
           <Element onClick={this.onClickAdd.bind(this)}>
-            <ElementContent icon><Icon name="add" fill="white" /></ElementContent>
+            <ElementContent icon><Icon name="add" /></ElementContent>
             <ElementContent text>Tilføj Vandpibe Cafe</ElementContent>
           </Element>
         </ListItem>
         <ListItem>
           <Element onClick={this.onClickAdd.bind(this)}>
-            <ElementContent icon><Icon name="cart" fill="white" /></ElementContent>
+            <ElementContent icon><Icon name="cart" /></ElementContent>
             <ElementContent text>Køb Vandpibe</ElementContent>
           </Element>
         </ListItem>

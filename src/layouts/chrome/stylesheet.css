@@ -1,14 +1,9 @@
-@custom-media --not-mobil (width >= 500px);
+@custom-media --not-mobil (width >= 800px);
 
 .layout {
   height: 100%;
   display: flex;
   flex-direction: row;
-
-  .layoutTopbar {
-    display: none;
-    height: 80px;
-  }
 
   .layoutSidebar {
     display: none;
@@ -19,11 +14,22 @@
     width: 100%;
 
     .layoutMainBody {
-      background-color: #F4F5F5;
       width: 100%;
       height: calc(100% - 48px);
       overflow: auto;
+
+      .page {
+        background-color: #fff;
+        color: #777777;
+        border: 1px solid rgba(0,0,0,.1);
+        margin-bottom: 10px;
+        padding: 12px;
+      }
     }
+  }
+
+  .layoutSidebar {
+    color: #ecf6fc;
   }
 }
 
@@ -39,7 +45,7 @@
   .layoutSidebar {
     flex: 1;
     display: block;
-    height: calc(100% - 80px);
+    height: 100%;
   }
 
   .layoutMain {
@@ -72,12 +78,10 @@
     .layoutSidebar {
       display: block;
       flex: .3;
-      height: calc(100% - 80px);
     }
 
     .layoutMain {
       flex: 1;
-      height: calc(100% - 80px);
     }
 
   }
@@ -97,8 +101,6 @@
     }
 
     .layoutMain {
-      height: calc(100% - 80px);
-
       .layoutMainHeader {
         .layoutMainHeaderRight, .layoutMainHeaderCenter {
           display: flex;

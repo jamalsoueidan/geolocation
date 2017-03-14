@@ -8,7 +8,9 @@ const HomePage = () => {
       <MainHeader>
         <HeaderCenter>Hjem</HeaderCenter>
       </MainHeader>
-      <MainBody>Vælge en by fra listen</MainBody>
+      <MainBody>
+        <div className="page">Vælge en by fra listen</div>
+      </MainBody>
     </Main>
   )
 }
