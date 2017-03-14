@@ -1,7 +1,8 @@
 import React from 'react'
 import PlaceItem from './place/item'
 import L from 'leaflet'
-import { withRoute } from 'react-router5';
+import { connect } from 'react-redux';
+import { actions } from 'redux-router5';
 
 class CityMap extends React.Component {
   constructor(props) {
@@ -10,24 +11,27 @@ class CityMap extends React.Component {
 
   onClick(place) {
     const route = this.props.router.getState();
-    router.navigate("application.city.place", { place: place.name, city: route.params.city });
+    this.props.navigateTo("application.city.place", { place: place.name, city: route.params.city });
   }
 
-  componentDidMount() {
-    const { city } = this.props;
-    this.map = L.map('map').setView(city.coordinates, 15);
+  _init() {
+    this.map = L.map('map').setView(this.props.city.coordinates, 15);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
-
-    this.createMarkers(city.children)
   }
 
-  createMarkers(newPlacers) {
+  componentDidMount() {
+    this._init();
+    this.createMarkers()
+  }
+
+  createMarkers() {
     if(this.groupMarkers) this.map.removeLayer(this.groupMarkers)
+    const { city } = this.props;
     let icon;
-    const markers = newPlacers.filter(p => p.coordinates).map(p => {
+    const markers = city.children.filter(p => p.coordinates).map(p => {
       icon = L.divIcon({
           className: '',
           html: '<div style="background-color: #fff; padding: 6px 6px 2px 6px; border:1px solid #000;"><img src="' + p.image + '" style="width:100%;height:100%;"/></div>',
@@ -41,10 +45,13 @@ class CityMap extends React.Component {
     this.map.fitBounds(this.groupMarkers.getBounds().pad(0.5));
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.layout.toggle !== this.props.layout.toggle) {
+      this.map.invalidateSize();
+    }
     const { city } = this.props;
     this.map.setView(city.coordinates, 13)
-    this.createMarkers(city.children)
+    this.createMarkers()
   }
 
   render() {
@@ -52,4 +59,6 @@ class CityMap extends React.Component {
   }
 }
 
-export default withRoute(CityMap)
+const mapStateProps = state => ({ layout: state.layout })
+
+export default connect(mapStateProps, { navigateTo: actions.navigateTo })(CityMap);
