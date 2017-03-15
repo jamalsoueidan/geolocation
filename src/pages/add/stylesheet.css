@@ -1,0 +1,59 @@
+.plans {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .plan {
+    flex: 1;
+    background-color: #D2E0EB;
+    color: #8BA0AF;
+    position: relative;
+
+    &.best {
+      background-color: #2EB398;
+      color: #fff;
+
+      .planTable {
+        color: #8BA0AF;
+      }
+    }
+
+    h3 {
+      text-transform: uppercase;
+      padding: 24px 0 48px 0;
+      text-align: center;
+      font-weight: 100;
+    }
+
+    .planPrice {
+      left: 50%;
+      width: 85px;
+      margin: auto;
+      height: 85px;
+      text-align: center;
+      font-size: 24px;
+      line-height: 81px;
+      position: absolute;
+      background: inherit;
+      margin-left: -48px;
+      border-radius: 100px;
+      border: 5px solid white;
+      margin-top: -32.5px;
+      font-size: 20px;
+    }
+
+    .planTable {
+      background-color: #fff;
+      margin-right: 1px;
+      padding-top:20px;
+
+      &:first-child {
+        margin-left: 1px;
+      }
+
+      .planFeature {
+        padding: 12px;
+        text-align: center;
+      }
+    }
+  }
+}

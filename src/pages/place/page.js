@@ -1,35 +1,45 @@
 import React from 'react'
-import ReactSVG from 'react-svg'
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
-import { Main } from 'layouts/chrome'
-import { Element } from 'components/element'
+import { Main, MainBody, MainHeader, HeaderCenter, HeaderRight } from 'layouts/chrome'
+import { Element, Icon } from 'components'
 import { actions } from 'redux-router5';
 
 class PlacePage extends React.Component {
   get title() {
     const { place } = this.props;
     return(
-      <div>
-        <div className="left">
+      <MainHeader>
+        <HeaderCenter>
           <Element>{place.name.capitalize()} Vandpibe Cafe</Element>
-        </div>
-        <div className="right">
-          <Element center={true}><ReactSVG path="dist/facebook.svg" /></Element>
-          <Element center={true}><ReactSVG path="dist/road.svg" /></Element>
-        </div>
-      </div>
+        </HeaderCenter>
+        <HeaderRight>
+          <Element  icon><Icon name="direction" /></Element>
+          <Element  icon><Icon name="facebook" /></Element>
+        </HeaderRight>
+      </MainHeader>
     )
   }
-  render() {
+
+  get body() {
     const { place } = this.props;
-    if(!place) return null;
-    return(
-      <Main title={this.title}>
+    return (
+      <MainBody>
         <div className="place">
           <h2>{place.name}</h2>
           <img src={place.image} />
         </div>
+      </MainBody>
+    )
+  }
+
+  render() {
+    const { place } = this.props;
+    if(!place) return null;
+    return(
+      <Main>
+        {this.title}
+        {this.body}
       </Main>
     )
   }

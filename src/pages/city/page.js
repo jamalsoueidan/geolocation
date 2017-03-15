@@ -22,7 +22,7 @@ class CityPage extends React.Component {
       Component = CityList;
     }
 
-    return <Component city={city} />
+    return <Component city={city} route={route} />
   }
 
   onChangeMode(mode) {

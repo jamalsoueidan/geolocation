@@ -10,7 +10,7 @@ class CityMap extends React.Component {
   }
 
   onClick(place) {
-    const route = this.props.router.getState();
+    const route = this.props.route;
     this.props.navigateTo("application.city.place", { place: place.name, city: route.params.city });
   }
 
