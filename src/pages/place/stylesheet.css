@@ -1,0 +1,31 @@
+.placePage {
+  .img {
+    margin: -6px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .meta {
+    margin: 12px 6px 0 6px;
+    padding: 6px;
+    background-color: #fff;
+
+    h1 {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+
+  address {
+    margin: 12px 6px;
+    background-color: #fff;
+    margin-top: 12px;
+    padding: 6px;
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+}

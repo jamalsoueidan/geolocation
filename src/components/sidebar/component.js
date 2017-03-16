@@ -57,7 +57,7 @@ class Sidebar extends React.Component {
         <List className="items" data={data} itemRenderer={(city, index) => (
           <Element onClick={this.onClickCity.bind(this, city)} selected={(selectedCity === city.name)}>
             <ElementContent text>{city.name.capitalize()}</ElementContent>
-            <ElementContent icon><Badge>{city.children.length}</Badge></ElementContent>
+            <ElementContent icon><Badge>{city.places.length}</Badge></ElementContent>
           </Element>
         )}/>
       </List>

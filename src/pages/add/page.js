@@ -52,6 +52,7 @@ const AddPage = () => {
               <div className="planFeature">Video</div>
               <div className="planFeature">Ingen 360 grader</div>
               <div className="planFeature">Reklamer</div>
+              <div className="planFeature">Nærmest cafe nr.1</div>
               <div className="planFeature"><button>Køb</button></div>
             </div>
           </div>
@@ -63,6 +64,8 @@ const AddPage = () => {
               <div className="planFeature">Video</div>
               <div className="planFeature">360 grader</div>
               <div className="planFeature">Reklamer</div>
+              <div className="planFeature">Nærmest cafe nr.1</div>
+              <div className="planFeature">Forsiden</div>
               <div className="planFeature"><button>Køb</button></div>
             </div>
           </div>

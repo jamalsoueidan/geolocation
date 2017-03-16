@@ -31,7 +31,7 @@ class CityMap extends React.Component {
     if(this.groupMarkers) this.map.removeLayer(this.groupMarkers)
     const { city } = this.props;
     let icon;
-    const markers = city.children.filter(p => p.coordinates).map(p => {
+    const markers = city.places.filter(p => p.coordinates).map(p => {
       icon = L.divIcon({
           className: '',
           html: '<div style="background-color: #fff; padding: 6px 6px 2px 6px; border:1px solid #000;"><img src="' + p.image + '" style="width:100%;height:100%;"/></div>',
