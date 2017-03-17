@@ -1,6 +1,6 @@
 import React from 'react'
 import * as icons from './names'
-console.log(icons)
+
 const findIcon = (attributes) => {
   let Component = icons[attributes.name.capitalize()];
   if(!Component) return  null;

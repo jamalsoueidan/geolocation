@@ -31,6 +31,14 @@ export default class Place {
     return this._data.address;
   }
 
+  get lat() {
+    return this.coordinates.lat;
+  }
+  
+  get lng() {
+    return this.coordinates.lng;
+  }
+
   get postalCode() {
     return this._data.postal_code;
   }

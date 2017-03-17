@@ -28,21 +28,9 @@ class ClosestPage extends React.Component {
         code: "1234",
         message: "Din browser understøtter ikke geolocation, derfor kan du ikke bruge den funktion."
       }})
-      return;
+    } else {
+      navigator.geolocation.getCurrentPosition(this.findClosestPlace.bind(this), this.notAccepting.bind(this), options);
     }
-    navigator.geolocation.getCurrentPosition(this.findClosestPlace.bind(this), this.notAccepting.bind(this), options);
-  }
-
-  get concatPlaces() {
-    return this.props.cities.reduce((accumulator, city) => accumulator.concat(city.children), [])
-                            .filter(p => p.coordinates)
-                            .map(p => Object.assign({}, p.coordinates, p));
-  }
-
-  get places() {
-    if(this._places) return this._places;
-    this._places = this.concatPlaces;
-    return this._places;
   }
 
   notAccepting(err) {
@@ -52,10 +40,16 @@ class ClosestPage extends React.Component {
     }});
   }
 
-  findClosestPlace(pos) {
-    const { latitude, longitude } = pos.coords;
-    const places = sphere(this.places)(latitude, longitude, 2)
-    this.setState({places, coordinates: pos.coords})
+  findClosestPlace(visitorCoordinates) {
+    const allPlaces = this.props.cities.reduce((accumulator, city) => accumulator.concat(city.places), []).filter(p => p.coordinates)
+    const spherePlaces = allPlaces.map(p => p.coordinates)
+    const { latitude, longitude } = visitorCoordinates.coords;
+
+    let places = sphere(spherePlaces)(latitude, longitude, 2)
+    places = allPlaces.filter(p => {
+      return places.some(pl => pl.lat === p.coordinates.lat && pl.lng === p.coordinates.lng);
+    });
+    this.setState({places, coordinates: visitorCoordinates.coords})
   }
 
   render() {

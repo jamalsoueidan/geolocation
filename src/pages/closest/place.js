@@ -10,6 +10,7 @@ class PlaceItem extends React.Component {
 
   render() {
     const { place, kilometer } = this.props;
+    console.log(place)
     return(
       <div className="placeItem" onClick={this.onClick.bind(this)}>
         <h2>{place.name.toUpperCase()} ca. {kilometer} kilometer</h2>
