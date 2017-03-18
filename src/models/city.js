@@ -3,7 +3,7 @@ import Place from './place'
 export default class City {
   constructor(data) {
     this._data = data;
-    this._places = this._data.children.map(p => new Place(p));
+    this._places = this._data.children.map(p => new Place(p, this));
   }
 
   get name() {

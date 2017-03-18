@@ -12,6 +12,8 @@ const options = {
   maximumAge: 0
 }
 
+require('./stylesheet.css')
+
 class ClosestPage extends React.Component {
   constructor(props) {
     super(props)

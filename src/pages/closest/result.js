@@ -26,7 +26,9 @@ class ResultPage extends React.Component {
           <HeaderCenter>{places.length} vandpibe cafeer fundet!</HeaderCenter>
         </MainHeader>
         <MainBody>
-          {this.renderBody}
+          <div className="pageResult">
+            {this.renderBody}
+          </div>
         </MainBody>
       </Main>
     )

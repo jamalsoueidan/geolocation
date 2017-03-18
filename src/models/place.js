@@ -1,6 +1,7 @@
 export default class Place {
-  constructor(data) {
+  constructor(data, parent) {
     this._data = data;
+    this._city = parent;
   }
 
   get coordinates() {
@@ -19,6 +20,10 @@ export default class Place {
     return this._data.id;
   }
 
+  get city() {
+    this._city;
+  }
+
   get social() {
     return this._data.social;
   }
@@ -34,7 +39,7 @@ export default class Place {
   get lat() {
     return this.coordinates.lat;
   }
-  
+
   get lng() {
     return this.coordinates.lng;
   }
@@ -49,5 +54,9 @@ export default class Place {
 
   get city() {
     return this._data.city;
+  }
+
+  get toParams() {
+    return { place: this.name, city: this._city.name }
   }
 }

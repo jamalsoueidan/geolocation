@@ -75,7 +75,11 @@ class PlacePage extends React.Component {
 const selectCurrent = state => {
   const route = state.router.route;
   const { city, place } = route.params
-  return state.cities.find(c => c.name === city).places.find(p => p.name === place)
+  const currentCity = state.cities.find(c => {
+    return c.name === city
+  })
+  if(!currentCity) return null;
+  return currentCity.places.find(p => p.name === place)
 }
 
 const mapStateProps = (state) => ({
