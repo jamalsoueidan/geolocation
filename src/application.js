@@ -52,6 +52,7 @@ class Application extends React.Component {
   }
 
   render() {
+    console.log("let's go")
     return(
       <Chrome topbar={<Topbar />} sidebar={<Sidebar data={this.props.cities} />} main={this.componentRender} />
     )

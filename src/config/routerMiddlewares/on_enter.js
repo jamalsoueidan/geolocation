@@ -21,6 +21,7 @@ const findRouteByName = (routes, routeName) => {
 }
 
 const onEnterMiddleware = (routes) => (router, dependencies) => (toState, fromState) => {
+  console.log('lets go')
   const { toActivate } = transitionPath(toState, fromState)
   const onEnterPromises = toActivate.map(routeName => findRouteByName(routes, routeName))
                          .filter(route => typeof route.onEnter === "function")

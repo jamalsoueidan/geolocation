@@ -4,7 +4,8 @@
   "description": "React application library that contains components",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors"
+    "start": "webpack-dev-server --progress --colors",
+    "build": "webpack -p"
   },
   "keywords": [
     "reactjs",

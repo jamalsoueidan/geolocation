@@ -14,6 +14,11 @@ const routes = [
   { name: 'application.city.place', path: '/sted/:place', component: PlacePage },
 ];
 
+const example = (router, dependencies) => (toState, fromState) => {
+  console.log(toState)
+  return true;
+}
+
 const router = createRouter(routes, {
   defaultRoute: 'application',
   trailingSlash: false,
@@ -21,7 +26,8 @@ const router = createRouter(routes, {
 })
 .usePlugin(browserPlugin({useHash: true}))
 .usePlugin(listenersPlugin())
-.useMiddleware(onEnterMiddleware(routes));
+.useMiddleware(onEnterMiddleware(routes))
+.useMiddleware(example);
 
 window.router = router
 
