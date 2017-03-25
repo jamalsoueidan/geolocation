@@ -6,6 +6,7 @@ import { routeNodeSelector } from 'redux-router5';
 import { routes } from 'config/router'
 import { HomePage } from 'pages'
 import { Chrome } from 'layouts'
+import * as pages from 'pages'
 
 const findRouteByName = (routeName, routes) => {
   return routes.find(route => route.name === routeName)
@@ -14,53 +15,23 @@ const findRouteByName = (routeName, routes) => {
 require('./stylesheet.css')
 
 class Application extends React.Component {
-  constructor(props, context) {
-    super(props, context)
-
-    this.router = context.router;
-    this.routerChange = this.routerChange.bind(this);
-
-    this.state = {
-      route: context.router.getState(),
-    }
-  }
-
-  routerChange() {
-    this.setState({
-      route: this.router.getState()
-    })
-  }
-
-  componentDidMount() {
-    this.router.addListener(this.routerChange)
-  }
-
-  componentWillUnmount() {
-    this.router.removeListener(this.routerChange)
-  }
-
   get componentRender() {
-    const { route } = this.state
+    const { route } = this.props
     if(route) {
       const selectNode = findRouteByName(route.name, routes)
-      if(selectNode && selectNode.component) {
-        const ComponentRender = selectNode.component;
+      if(selectNode && selectNode.page) {
+        const name = selectNode.page.capitalize() + "Page"
+        const ComponentRender = pages[name]
+        if(!ComponentRender) return <div>{name} not found in pages</div>
         return <ComponentRender />
       }
     }
-    return <HomePage />;
+    return(<div>No page defined in routes</div>);
   }
 
   render() {
-    console.log("let's go")
-    return(
-      <Chrome topbar={<Topbar />} sidebar={<Sidebar data={this.props.cities} />} main={this.componentRender} />
-    )
+    return(<Chrome topbar={<Topbar />} sidebar={<Sidebar data={this.props.cities} />} main={this.componentRender} />)
   }
-}
-
-Application.contextTypes = {
-  router: React.PropTypes.object.isRequired
 }
 
 const mapStateProps = (state) => ({
